@@ -11,9 +11,14 @@ import com.radhio.myarchitectureapp.Entities.Note;
 
 import java.util.List;
 /*
-In Dao we define all DB operation to make on Note Entity.
-Dao has to be Interface or Abstract class because we don't provide method body.
-After annotating room will automatically generate all the code fast
+ The DAO is an interface that defines all the database operations we want to do on our entity.
+ For this we declare methods without a method body and annotate them with @Insert, @Update, @Delete or the generic @Query,
+ where we can pass an SQLite query.
+
+ we can let these queries return instances of our own Java objects, which we can also wrap into LiveData,
+ so our activity or fragment gets notified as soon as a row in the queried database table changes.
+
+ After annotating room will automatically generate all the code fast
  */
 @Dao //annotated
 public interface NoteDao {

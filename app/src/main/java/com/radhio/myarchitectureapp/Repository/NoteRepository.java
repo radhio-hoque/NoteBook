@@ -10,6 +10,15 @@ import com.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.RoomDatabase.NoteDatabase;
 
 import java.util.List;
+/*
+ The Repository is a simple Java class that abstracts the data layer from the rest of the app and mediates between different data sources, like a web service and a local cache.
+ It hides the different database operations (like SQLite queries) and provides a clean API to the ViewModel.
+ Since Room doesn't allow database queries on the main thread, we use AsyncTasks to execute them asynchronously.
+
+ Also, we will add a RoomDatabase.Callback to our database builder where we populate our database in the onCreate method so we don't start with an empty table.
+ We can also override onOpen if we want to execute code every time our Room database is opened.
+
+ */
 
 public class NoteRepository {
     private NoteDao noteDao;

@@ -16,13 +16,16 @@ import com.radhio.myarchitectureapp.Entities.Note;
 1. Create DB
 2. execute onCreate in DB
 3. Populate data in DB
+The RoomDatabase is an abstract class that ties all the pieces together and connects the entities to their corresponding DAO.
+Just as in an SQLiteOpenHelper, we have to define a version number and a migration strategy. With fallbackToDestructiveMigration we can let Room recreate our database if we increase the version number.
+We create our database in form of a static singleton with the databaseBuilder, where we have to pass our database class and a file name.
  */
 
 @Database(entities = {Note.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
 
     //not to create multiple instance
-    private static NoteDatabase instance;
+    private static NoteDatabase instance = null;
 
     public abstract NoteDao noteDao();
 

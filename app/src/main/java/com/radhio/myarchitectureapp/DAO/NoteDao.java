@@ -10,8 +10,12 @@ import androidx.room.Update;
 import com.radhio.myarchitectureapp.Entities.Note;
 
 import java.util.List;
-
-@Dao
+/*
+In Dao we define all DB operation to make on Note Entity.
+Dao has to be Interface or Abstract class because we don't provide method body.
+After annotating room will automatically generate all the code fast
+ */
+@Dao //annotated
 public interface NoteDao {
 
     @Insert

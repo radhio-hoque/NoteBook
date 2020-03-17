@@ -3,6 +3,10 @@ package com.radhio.myarchitectureapp.Entities;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+/*
+In Compile time @Entity annotation will create will the necessary code to create SQLite Table for this object
+We can use Room @annotation as we use SQLiteOpenHelper Class
+ */
 
 @Entity(tableName = "note_table")
 public class Note {

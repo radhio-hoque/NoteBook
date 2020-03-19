@@ -30,9 +30,7 @@ public class NoteViewModel extends AndroidViewModel {
     so i have made a wrapper method for our database operation method from my repository
      */
 
-    public void insert(Note note){
-        noteRepository.insert(note);
-    }
+    public void insert(Note note){ noteRepository.insert(note); }
     public void update(Note note){
         noteRepository.update(note);
     }

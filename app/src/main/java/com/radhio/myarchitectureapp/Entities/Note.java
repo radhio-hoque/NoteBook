@@ -17,13 +17,13 @@ public class Note {
     private int id;
     private String title;
     private String description;
-    @ColumnInfo(name = "property_table")
-    private int property;
+    @ColumnInfo(name = "priority_table")
+    private int priority;
 
-    public Note(String title, String description, int property) {
+    public Note(String title, String description, int priority) {
         this.title = title;
         this.description = description;
-        this.property = property;
+        this.priority = priority;
     }
 
     // not to recreate this field in room thats why only setter method
@@ -43,7 +43,7 @@ public class Note {
         return description;
     }
 
-    public int getProperty() {
-        return property;
+    public int getPriority() {
+        return priority;
     }
 }

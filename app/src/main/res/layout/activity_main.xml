@@ -4,14 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Ui.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/note_recyclerview"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp"
-        tools:ignore="MissingConstraints"
-        tools:listitem="@layout/news_item"/>
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/textcolor"
+            style="@style/TextAppearance.AppCompat.Medium"
+            >
+
+        </TextView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+        <fragment
+            android:layout_marginTop="55dp"
+            android:layout_below="@id/coordinator"
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

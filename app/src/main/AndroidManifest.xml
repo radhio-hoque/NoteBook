@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/ic_noteicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.radhio.myarchitectureapp.MainActivity">
+        <activity android:name=".Ui.AddNoteActivity"></activity>
+        <activity android:name=".Ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

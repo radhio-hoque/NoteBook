@@ -22,16 +22,13 @@ import butterknife.BindView;
 public class MainActivity extends AppCompatActivity {
 
     NavController navController;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Dashboard dashboard = new Dashboard();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        setSupportActionBar(toolbar);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     }
 }

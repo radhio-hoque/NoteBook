@@ -20,17 +20,17 @@ import com.radhio.myarchitectureapp.Adapter.NoteAdapter;
 import com.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
 import com.radhio.myarchitectureapp.ViewModel.NoteViewModel;
+import com.radhio.myarchitectureapp.ViewModel.SharedViewModel;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.OnClick;
+public class Dashboard extends Fragment{
 
-public class Dashboard extends Fragment {
     private View root;
     private NoteViewModel noteViewModel;
     private NoteAdapter noteAdapter;
     private FloatingActionButton addButton;
+    private SharedViewModel viewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -39,28 +39,31 @@ public class Dashboard extends Fragment {
 
         addButton = root.findViewById(R.id.note_addButton);
 
+
            /*
         In our activity we let the system provide us the correct ViewModel instance by calling ViewModelProviders.of,
         where we pass the Activity or Fragment this ViewModel's lifecycle should be scoped to.
          When our Activity/Fragment is then destroyed, the ViewModel will go through it's onCleared method and get removed from the memory.
          */
-        noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
-        // Since getAllNotes returns Live Data i use here Observe which is LiveData Method
-        noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), new Observer<List<Note>>() {
-            @Override
-            public void onChanged(List<Note> notes) {
-                // this will trigger if only my activity is Foreground and if my activity is destroyed this will not hold the reference of this activity anymore.
-                //update recyclerview
-                noteAdapter.setNotes(notes);
-            }
-        });
+            noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
+            // Since getAllNotes returns Live Data i use here Observe which is LiveData Method
+            noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), new Observer<List<Note>>() {
+                @Override
+                public void onChanged(List<Note> notes) {
+                    // this will trigger if only my activity is Foreground and if my activity is destroyed this will not hold the reference of this activity anymore.
+                    //update recyclerview
+                    if (notes.size() > 0){
+                        noteAdapter.setNotes(notes);
+                    }
+                }
+            });
 
-        //set recyclerView
-        RecyclerView noteRecyclerview = root.findViewById(R.id.note_recyclerview);
-        noteRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        noteRecyclerview.setHasFixedSize(true);
-        noteAdapter = new NoteAdapter();
-        noteRecyclerview.setAdapter(noteAdapter);
+            //set recyclerView
+            RecyclerView noteRecyclerview = root.findViewById(R.id.note_recyclerview);
+            noteRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+            noteRecyclerview.setHasFixedSize(true);
+            noteAdapter = new NoteAdapter();
+            noteRecyclerview.setAdapter(noteAdapter);
 
         //navigate one fragment to another
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -74,4 +77,15 @@ public class Dashboard extends Fragment {
         return root;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
+        viewModel.getnote().observe(getViewLifecycleOwner(), new Observer<Note>() {
+            @Override
+            public void onChanged(@Nullable Note note) {
+               noteViewModel.insert(note);
+            }
+        });
+    }
 }

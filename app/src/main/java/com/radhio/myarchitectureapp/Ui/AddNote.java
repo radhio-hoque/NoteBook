@@ -1,16 +1,25 @@
 package com.radhio.myarchitectureapp.Ui;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Toast;
+
 
 import androidx.fragment.app.Fragment;
 
+import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
+import com.radhio.myarchitectureapp.ViewModel.SharedViewModel;
 
 
 public class AddNote extends Fragment {
@@ -20,6 +29,8 @@ public class AddNote extends Fragment {
     private NumberPicker numberPickerPriority;
     private FloatingActionButton saveButton;
     private View root;
+    private String title,description;
+    private SharedViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,8 +56,35 @@ public class AddNote extends Fragment {
     }
 
     private void saveNote(){
-        String title = editTextTitle.getText().toString();
-        String description = editTextDescription.getText().toString();
+        title = editTextTitle.getText().toString();
+        description = editTextDescription.getText().toString();
         int priority = numberPickerPriority.getValue();
+
+        if (!errorEditText()){
+            Toast.makeText(getActivity(), "Note Submission failed", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Note note = new Note(title,description,priority);
+            viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
+            viewModel.addNote(note);
+            NavController navController = Navigation.findNavController(root);
+            navController.navigate(R.id.action_addNote_to_dashboard,null);
+            Toast.makeText(getActivity(), "Note Successfully Created", Toast.LENGTH_SHORT).show();
+    }
+    }
+
+    private boolean errorEditText(){
+        boolean valid = true;
+        if (title.trim().isEmpty()){
+            editTextTitle.setError("Enter a valid Title");
+            editTextTitle.requestFocus();
+            valid = false;
+        }
+        else if (description.trim().isEmpty()){
+            editTextDescription.setError("Enter a valid Description");
+            editTextDescription.requestFocus();
+            valid = false;
+        }
+        return valid;
     }
 }

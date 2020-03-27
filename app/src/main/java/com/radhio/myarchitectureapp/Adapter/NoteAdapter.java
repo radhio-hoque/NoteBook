@@ -1,5 +1,7 @@
 package com.radhio.myarchitectureapp.Adapter;
 
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +10,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
+import com.radhio.myarchitectureapp.Ui.AddNoteDirections;
+import com.radhio.myarchitectureapp.Ui.DashboardDirections;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +28,14 @@ RecyclerView.Adapter, where I add a NoteViewHolder as an inner class and impleme
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
+    public static int id ;
     private List<Note> notes = new ArrayList<>();
+    private Context context;
     private String colors[] = {"#FF7A7B", "#FEA63C", "#4073DC", "#4E9448"};
+
+    public NoteAdapter(Context context) {
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -40,6 +52,20 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.description.setText(notes.get(position).getDescription());
         // as i can not pass int into TextView
         holder.priority.setText(String.valueOf(notes.get(position).getPriority()));
+        holder.noteCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (position != RecyclerView.NO_POSITION) {
+                    Note note = notes.get(position);
+                    String title = note.getTitle();
+                    String description = note.getDescription();
+                    int priority = note.getPriority();
+                    id = note.getId();
+                    NavController navController = Navigation.findNavController(v);
+                    navController.navigate(DashboardDirections.actionDashboardToEditNote(title,description,priority,id));
+                }
+            }
+        });
     }
 
     // how many item i want to show in recyclerview
@@ -48,15 +74,20 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         return notes.size();
     }
 
+    // i want to call it from Dashboard and return type is note(this way i can get note from this adapter to the outside)
+    public Note getNoteAt(int position){
+        return notes.get(position);
+    }
+
     public void setNotes(List<Note> notes){
         this.notes = notes;
         notifyDataSetChanged();
     }
 
-    //NoteviewHolder Class holds a views in my sing;e recyclerview items
+    //NoteViewHolder Class holds a views in my sing;e recyclerview items
     public class NoteViewHolder extends RecyclerView.ViewHolder {
         private TextView title,description,priority;
-        private CardView notecard;
+        private CardView noteCard;
         private View noteView;
 
         public NoteViewHolder(@NonNull View itemView) {
@@ -64,7 +95,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             title = itemView.findViewById(R.id.note_title);
             description = itemView.findViewById(R.id.note_description);
             priority = itemView.findViewById(R.id.note_priority);
-            notecard = itemView.findViewById(R.id.note_card);
+            noteCard = itemView.findViewById(R.id.note_card);
             noteView = itemView.findViewById(R.id.note_view);
         }
     }

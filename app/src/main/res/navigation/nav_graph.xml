@@ -18,6 +18,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_dashboard_to_editNote"
+            app:destination="@id/editNote"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/addNote"
@@ -31,5 +38,34 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/editNote"
+        android:name="com.radhio.myarchitectureapp.Ui.EditNote"
+        android:label="EditNote"
+        tools:layout="@layout/edit_note_fragment">
+        <action
+            android:id="@+id/action_editNote_to_dashboard"
+            app:destination="@id/dashboard"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="priority"
+            app:argType="integer"
+            />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            />
     </fragment>
 </navigation>

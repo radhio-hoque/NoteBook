@@ -15,7 +15,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:id="@+id/take_title"
+            android:id="@+id/edit_title"
             android:hint="Title"
             android:inputType="textAutoCorrect"
             android:layout_height="wrap_content">
@@ -23,7 +23,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:id="@+id/take_description"
+            android:id="@+id/edit_description"
             android:hint="Description"
             android:inputType="textMultiLine"
             android:layout_height="wrap_content">
@@ -45,7 +45,7 @@
                 android:textStyle="bold"></TextView>
 
             <NumberPicker
-                android:id="@+id/numberPicker"
+                android:id="@+id/edit_numberPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp">
             </NumberPicker>
@@ -55,7 +55,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/note_saveButton"
+        android:id="@+id/editnote_saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_save_black_24dp"
@@ -64,8 +64,13 @@
         android:layout_margin="32dp">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
 
-
+    </TextView>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

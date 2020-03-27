@@ -1,6 +1,5 @@
 package com.radhio.myarchitectureapp.Ui;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,24 +9,23 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.radhio.myarchitectureapp.Adapter.NoteAdapter;
 import com.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
 import com.radhio.myarchitectureapp.ViewModel.SharedViewModel;
 
-
-public class AddNote extends Fragment {
-
+public class EditNote extends Fragment {
+//    public static int id ;
     private EditText editTextTitle;
     private EditText editTextDescription;
     private NumberPicker numberPickerPriority;
@@ -41,11 +39,15 @@ public class AddNote extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.add_note_fragment, container, false);
-        editTextTitle = root.findViewById(R.id.take_title);
-        editTextDescription = root.findViewById(R.id.take_description);
-        numberPickerPriority = root.findViewById(R.id.numberPicker);
-        saveButton = root.findViewById(R.id.note_saveButton);
+        root = inflater.inflate(R.layout.edit_note_fragment, container, false);
+        editTextTitle = root.findViewById(R.id.edit_title);
+        editTextDescription = root.findViewById(R.id.edit_description);
+        numberPickerPriority = root.findViewById(R.id.edit_numberPicker);
+        saveButton = root.findViewById(R.id.editnote_saveButton);
+
+        editTextTitle.setText(EditNoteArgs.fromBundle(getArguments()).getTitle());
+        editTextDescription.setText(EditNoteArgs.fromBundle(getArguments()).getDescription());
+        numberPickerPriority.setValue(EditNoteArgs.fromBundle(getArguments()).getPriority());
 
         numberPickerPriority.setMinValue(1);
         numberPickerPriority.setMaxValue(10);
@@ -53,31 +55,13 @@ public class AddNote extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveNote();
+                editNote();
             }
         });
-
         return root;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-//        AddNoteArgs addNoteArgs = AddNoteArgs.fromBundle(getArguments());
-//        if(addNoteArgs != null) {
-//            editTextTitle.setText(AddNoteArgs.fromBundle(getArguments()).getTitle());
-//            editTextDescription.setText(AddNoteArgs.fromBundle(getArguments()).getDescription());
-//            numberPickerPriority.setValue(AddNoteArgs.fromBundle(getArguments()).getPriority());
-//        }
-//        else {
-//            editTextTitle.setText(" ");
-//            editTextDescription.setText(" ");
-//            numberPickerPriority.setValue(1);
-//        }
-    }
-
-    private void saveNote(){
+    private void editNote() {
         title = editTextTitle.getText().toString();
         description = editTextDescription.getText().toString();
         priority = numberPickerPriority.getValue();
@@ -86,13 +70,14 @@ public class AddNote extends Fragment {
             Toast.makeText(getActivity(), "Note Submission failed", Toast.LENGTH_SHORT).show();
         }
         else {
-            Note note = new Note(title,description,priority,"AddNote");
+            Note note = new Note(title,description,priority,"EditNote");
+//            id = NoteAdapter.id;
             viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
             viewModel.addNote(note);
             NavController navController = Navigation.findNavController(root);
-            navController.navigate(R.id.action_addNote_to_dashboard,null);
-            Toast.makeText(getActivity(), "Note Successfully Created", Toast.LENGTH_SHORT).show();
-    }
+            navController.navigate(R.id.action_editNote_to_dashboard,null);
+            Toast.makeText(getActivity(), "Note Updated Created", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean errorEditText(){
@@ -128,6 +113,6 @@ public class AddNote extends Fragment {
     @NonNull
     @Override
     public String toString() {
-        return "AddNote";
+        return "EditNote";
     }
 }

@@ -9,7 +9,6 @@
         android:roundIcon="@drawable/ic_noteicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Ui.AddNoteActivity"></activity>
         <activity android:name=".Ui.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

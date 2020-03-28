@@ -70,12 +70,12 @@ public class EditNote extends Fragment {
             Toast.makeText(getActivity(), "Note Submission failed", Toast.LENGTH_SHORT).show();
         }
         else {
-            Note note = new Note(title,description,priority,"EditNote");
+            Note note = new Note(title,description,priority);
 //            id = NoteAdapter.id;
             viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
             viewModel.addNote(note);
             NavController navController = Navigation.findNavController(root);
-            navController.navigate(R.id.action_editNote_to_dashboard,null);
+            navController.navigate(EditNoteDirections.actionEditNoteToDashboard(toString()));
             Toast.makeText(getActivity(), "Note Updated Created", Toast.LENGTH_SHORT).show();
         }
     }

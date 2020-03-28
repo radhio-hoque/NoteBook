@@ -60,23 +60,6 @@ public class AddNote extends Fragment {
         return root;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-//        AddNoteArgs addNoteArgs = AddNoteArgs.fromBundle(getArguments());
-//        if(addNoteArgs != null) {
-//            editTextTitle.setText(AddNoteArgs.fromBundle(getArguments()).getTitle());
-//            editTextDescription.setText(AddNoteArgs.fromBundle(getArguments()).getDescription());
-//            numberPickerPriority.setValue(AddNoteArgs.fromBundle(getArguments()).getPriority());
-//        }
-//        else {
-//            editTextTitle.setText(" ");
-//            editTextDescription.setText(" ");
-//            numberPickerPriority.setValue(1);
-//        }
-    }
-
     private void saveNote(){
         title = editTextTitle.getText().toString();
         description = editTextDescription.getText().toString();
@@ -86,11 +69,11 @@ public class AddNote extends Fragment {
             Toast.makeText(getActivity(), "Note Submission failed", Toast.LENGTH_SHORT).show();
         }
         else {
-            Note note = new Note(title,description,priority,"AddNote");
+            Note note = new Note(title,description,priority);
             viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
             viewModel.addNote(note);
             NavController navController = Navigation.findNavController(root);
-            navController.navigate(R.id.action_addNote_to_dashboard,null);
+            navController.navigate(AddNoteDirections.actionAddNoteToDashboard(toString()));
             Toast.makeText(getActivity(), "Note Successfully Created", Toast.LENGTH_SHORT).show();
     }
     }

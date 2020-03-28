@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,7 +36,6 @@ public class Dashboard extends Fragment {
     private FloatingActionButton addButton;
     private SharedViewModel viewModel;
     private RecyclerView noteRecyclerview;
-    private AddNote addNote = new AddNote();
     private EditNote editNote = new EditNote();
 
     @Override
@@ -77,6 +78,7 @@ public class Dashboard extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(v);
+//                NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.addNote,true).build();
                 navController.navigate(R.id.action_dashboard_to_addNote, null);
             }
         });
@@ -86,20 +88,23 @@ public class Dashboard extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
+
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
         viewModel.getnote().observe(getViewLifecycleOwner(), new Observer<Note>() {
             @Override
             public void onChanged(@Nullable Note note) {
+                String checkFragment = DashboardArgs.fromBundle(getArguments()).getTitle();
+                if (checkFragment == editNote.toString()) {
+                    int id= NoteAdapter.id;
+                    note.setId(id);
+                    noteViewModel.update(note);
+                }
+                else {
+                    noteViewModel.insert(note);
+                }
 
-//                if (note.getClassName() == editNote.toString()) {
-//                    int id= NoteAdapter.id;
-//                    note.setId(id);
-//                    noteViewModel.update(note);
-//                }
-//                else if (note.getClassName() == addNote.toString()){
-//                    noteViewModel.insert(note);
-//                }
             }
         });
 

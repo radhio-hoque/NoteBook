@@ -19,22 +19,16 @@ public class Note {
     private String description;
     @ColumnInfo(name = "priority_table")
     private int priority;
-    private String className;
 
-    public Note(String title, String description, int priority, String className) {
+    public Note(String title, String description, int priority) {
         this.title = title;
         this.description = description;
         this.priority = priority;
-        this.className = className;
     }
 
     // not to recreate this field in room thats why only setter method
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getClassName() {
-        return className;
     }
 
     public int getId() {

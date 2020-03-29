@@ -1,4 +1,4 @@
-package com.radhio.myarchitectureapp;
+package dev.radhio.myarchitectureapp;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.radhio.myarchitectureapp.Entities;
+package dev.radhio.myarchitectureapp.Entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

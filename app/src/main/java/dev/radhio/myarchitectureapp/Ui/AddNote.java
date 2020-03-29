@@ -1,4 +1,4 @@
-package com.radhio.myarchitectureapp.Ui;
+package dev.radhio.myarchitectureapp.Ui;
 
 
 import android.app.Activity;
@@ -13,7 +13,6 @@ import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -21,9 +20,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
-import com.radhio.myarchitectureapp.ViewModel.SharedViewModel;
+import dev.radhio.myarchitectureapp.ViewModel.SharedViewModel;
 
 
 public class AddNote extends Fragment {

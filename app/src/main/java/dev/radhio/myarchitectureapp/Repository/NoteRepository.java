@@ -1,13 +1,13 @@
-package com.radhio.myarchitectureapp.Repository;
+package dev.radhio.myarchitectureapp.Repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.radhio.myarchitectureapp.DAO.NoteDao;
-import com.radhio.myarchitectureapp.Entities.Note;
-import com.radhio.myarchitectureapp.RoomDatabase.NoteDatabase;
+import dev.radhio.myarchitectureapp.DAO.NoteDao;
+import dev.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.RoomDatabase.NoteDatabase;
 
 import java.util.List;
 /*

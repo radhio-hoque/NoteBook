@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/dashboard"
-        android:name="com.radhio.myarchitectureapp.Ui.Dashboard"
+        android:name="dev.radhio.myarchitectureapp.Ui.Dashboard"
         tools:layout="@layout/dashboard_fragment"
         android:label="DashBoard">
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNote"
-        android:name="com.radhio.myarchitectureapp.Ui.AddNote"
+        android:name="dev.radhio.myarchitectureapp.Ui.AddNote"
         tools:layout="@layout/add_note_fragment"
         android:label="Create Your Note Here">
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/editNote"
-        android:name="com.radhio.myarchitectureapp.Ui.EditNote"
+        android:name="dev.radhio.myarchitectureapp.Ui.EditNote"
         android:label="EditNote"
         tools:layout="@layout/edit_note_fragment">
         <action

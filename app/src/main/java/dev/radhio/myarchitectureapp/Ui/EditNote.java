@@ -1,4 +1,4 @@
-package com.radhio.myarchitectureapp.Ui;
+package dev.radhio.myarchitectureapp.Ui;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,10 +18,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.radhio.myarchitectureapp.Adapter.NoteAdapter;
-import com.radhio.myarchitectureapp.Entities.Note;
+
+import dev.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
-import com.radhio.myarchitectureapp.ViewModel.SharedViewModel;
+import dev.radhio.myarchitectureapp.ViewModel.SharedViewModel;
 
 public class EditNote extends Fragment {
 //    public static int id ;

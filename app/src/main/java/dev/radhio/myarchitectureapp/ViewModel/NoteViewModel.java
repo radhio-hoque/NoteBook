@@ -1,12 +1,12 @@
-package com.radhio.myarchitectureapp.ViewModel;
+package dev.radhio.myarchitectureapp.ViewModel;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import com.radhio.myarchitectureapp.Entities.Note;
-import com.radhio.myarchitectureapp.Repository.NoteRepository;
+import dev.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.Repository.NoteRepository;
 
 import java.util.List;
 

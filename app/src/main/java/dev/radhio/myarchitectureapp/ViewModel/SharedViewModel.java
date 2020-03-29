@@ -1,10 +1,10 @@
-package com.radhio.myarchitectureapp.ViewModel;
+package dev.radhio.myarchitectureapp.ViewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.Entities.Note;
 
 public class SharedViewModel extends ViewModel {
     private MutableLiveData<Note> noteMutableLiveData = new MutableLiveData<>();

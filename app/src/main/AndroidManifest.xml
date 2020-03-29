@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/ic_noteicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Ui.MainActivity"
+        <activity android:name="dev.radhio.myarchitectureapp.Ui.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:screenOrientation="portrait">

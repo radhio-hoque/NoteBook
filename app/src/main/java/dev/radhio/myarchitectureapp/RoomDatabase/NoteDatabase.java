@@ -1,4 +1,4 @@
-package com.radhio.myarchitectureapp.RoomDatabase;
+package dev.radhio.myarchitectureapp.RoomDatabase;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -9,8 +9,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.radhio.myarchitectureapp.DAO.NoteDao;
-import com.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.DAO.NoteDao;
+import dev.radhio.myarchitectureapp.Entities.Note;
 
 /*
 1. Create DB

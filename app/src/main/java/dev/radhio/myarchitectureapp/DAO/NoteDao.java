@@ -1,4 +1,4 @@
-package com.radhio.myarchitectureapp.DAO;
+package dev.radhio.myarchitectureapp.DAO;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.Entities.Note;
 
 import java.util.List;
 /*

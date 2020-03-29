@@ -1,10 +1,9 @@
-package com.radhio.myarchitectureapp.Ui;
+package dev.radhio.myarchitectureapp.Ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,18 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.radhio.myarchitectureapp.Adapter.NoteAdapter;
-import com.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.Adapter.NoteAdapter;
+import dev.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
-import com.radhio.myarchitectureapp.ViewModel.NoteViewModel;
-import com.radhio.myarchitectureapp.ViewModel.SharedViewModel;
+import dev.radhio.myarchitectureapp.ViewModel.NoteViewModel;
+import dev.radhio.myarchitectureapp.ViewModel.SharedViewModel;
 
 import java.util.List;
 

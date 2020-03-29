@@ -1,6 +1,5 @@
-package com.radhio.myarchitectureapp.Adapter;
+package dev.radhio.myarchitectureapp.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -14,10 +13,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.radhio.myarchitectureapp.Entities.Note;
+import dev.radhio.myarchitectureapp.Entities.Note;
 import com.radhio.myarchitectureapp.R;
-import com.radhio.myarchitectureapp.Ui.AddNoteDirections;
-import com.radhio.myarchitectureapp.Ui.DashboardDirections;
+
+import dev.radhio.myarchitectureapp.Ui.DashboardDirections;
 
 import java.util.ArrayList;
 import java.util.List;

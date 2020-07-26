@@ -1,6 +1,10 @@
 # Overview
 This repository contains a architecture components app that implements MVVM architecture using Room + ViewModel+ LiveData+ RecyclerView + AsyncTask + WeakReference + ButterKnife + Navigation Component + SharedViewModel (A ViewModel That use for Communicate with Two Fragment).
 
+![Screenshot_2020-07-26-19-18-33-915_com softifybd myarchitectureapp](https://user-images.githubusercontent.com/32242297/88480206-64a75580-cf76-11ea-885a-4cb809c20a8e.jpg)
+![Screenshot_2020-07-26-19-18-38-308_com softifybd myarchitectureapp](https://user-images.githubusercontent.com/32242297/88480217-77ba2580-cf76-11ea-87b8-447805e7070e.jpg)
+![Screenshot_2020-07-26-19-19-02-303_com softifybd myarchitectureapp](https://user-images.githubusercontent.com/32242297/88480219-7983e900-cf76-11ea-83d6-3dfd8a170608.jpg)
+
 
 
 #### The app has following packages:

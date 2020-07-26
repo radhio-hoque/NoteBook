@@ -4,7 +4,7 @@ This repository contains a architecture components app that implements MVVM arch
 
 <p float="left">
  <img src="https://user-images.githubusercontent.com/32242297/88480206-64a75580-cf76-11ea-885a-4cb809c20a8e.jpg" width="270" height="600" />
-   <img src="https://user-images.githubusercontent.com/32242297/88480217-77ba2580-cf76-11ea-87b8-447805e7070e" width="270" height="600" />
+   <img src="https://user-images.githubusercontent.com/32242297/88481924-08e1ca00-cf80-11ea-8621-9f2dc90e00fc.jpg" width="270" height="600" />
    <img src="https://user-images.githubusercontent.com/32242297/88480219-7983e900-cf76-11ea-83d6-3dfd8a170608.jpg" width="270" height="600" />
 </p>
 

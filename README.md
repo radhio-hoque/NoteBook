@@ -1,7 +1,7 @@
 # Overview
 This repository contains a architecture components app that implements MVVM architecture using Room + ViewModel+ LiveData+ RecyclerView + AsyncTask + WeakReference + ButterKnife + Navigation Component + SharedViewModel (A ViewModel That use for Communicate with Two Fragment).
 
-<img src="https://user-images.githubusercontent.com/32242297/88480206-64a75580-cf76-11ea-885a-4cb809c20a8e.jpg" width="200" height="200" />
+<img src="https://user-images.githubusercontent.com/32242297/88480206-64a75580-cf76-11ea-885a-4cb809c20a8e.jpg" />
 
 
 
